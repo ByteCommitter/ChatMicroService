@@ -1,5 +1,5 @@
 import express from "express";
-import { getUsersForSidebar, createSession } from "../controllers/message.controller.js";
+import { getMessages, postMessage, getUsersForSidebar} from "../controllers/message.controller.js";
 
 const router=express.Router();
 
@@ -10,13 +10,8 @@ const router=express.Router();
 //router.get("/:sessionId",authenticateParticipant,getMessages);
 
 router.get("/sessions",getUsersForSidebar); 
-//The bunch of chat room Id's we're talking to
-
-//send a message to the sessionId(chat Room Id)
-// router.post("/send/:sessionId",authenticateParticipant,sendMessage);
-
-router.post("/createSession",createSession);
-
+router.get("/:sessionId",getMessages);
+router.post("/:sessionId",postMessage);
 export default router;
 
 //realtime endpoints to be made with socket.io, and it would also store those messages on redis

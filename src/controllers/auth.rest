@@ -1,18 +1,106 @@
-###POST signup
-POST http://localhost:5000/api/auth/signup
+###POST to login into the admin
+POST  http://localhost:8081/auth/login
 Content-Type: application/json
 
 {
-    "fullName":"John Check",
-    "email": "jhoncheck@gmail.com",
-    "password":"123456"
+    "id":"f20220226",
+    "password":"123123"
 }
 
-###POST login
-POST http://localhost:5000/api/auth/login
+
+###POST to login into the admin
+POST  http://localhost:8081/chat/createSession
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzU0NDA0MjE4LCJleHAiOjE3NTQ1ODQyMTh9.K-jXDNgG_QFc5bmWYW4pMatKNx4lwqAsD4yl37pQ8WQ
 Content-Type: application/json
 
 {
-    "email": "jhoncheck@gmail.com",
-    "password":"123456"
+    "roomName":"TestRoom2",
+    "participants": [
+                { "id": "", "name": "Narayana" },
+                { "id": "2", "name": "Sri Sri Sri Guru" },
+                { "id": "f20220226", "name": "Guru" }
+                ]
 }
+
+
+###POST to login into the admin
+POST  http://localhost:8081/chat/createSession
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzU0NDA0MjE4LCJleHAiOjE3NTQ1ODQyMTh9.K-jXDNgG_QFc5bmWYW4pMatKNx4lwqAsD4yl37pQ8WQ
+Content-Type: application/json
+
+{
+    "roomName":"TestRoom25",
+    "participants": [
+                { "id": "", "name": "Narayana" },
+                { "id": "2", "name": "Sri Sri Sri Guru" },
+                { "id": "f20220226", "name": "Guru" }
+                ]
+}
+
+###POST to login into the admin
+POST  http://localhost:8081/chat/createSession
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzU0NDA0MjE4LCJleHAiOjE3NTQ1ODQyMTh9.K-jXDNgG_QFc5bmWYW4pMatKNx4lwqAsD4yl37pQ8WQ
+Content-Type: application/json
+
+{
+    "roomName":"TestRoom7",
+    "participants": [
+                { "id": "", "name": "Narayana" },
+                { "id": "2", "name": "Sri Sri Sri Guru" },
+                { "id": "f20220226", "name": "Guru" }
+                ]
+}
+
+###POST to login into the admin
+POST  http://localhost:8081/chat/createSession
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzU0NDA0MjE4LCJleHAiOjE3NTQ1ODQyMTh9.K-jXDNgG_QFc5bmWYW4pMatKNx4lwqAsD4yl37pQ8WQ
+Content-Type: application/json
+
+{
+    "roomName":"TestRoom008",
+    "participants": [
+                { "id": "", "name": "Narayana" },
+                { "id": "2", "name": "Sri Sri Sri Guru" },
+                { "id": "f20220226", "name": "Guru" }
+                ]
+}
+
+###POST to login into the admin
+POST  http://localhost:8081/chat/check
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYyMDIyMDIyNiIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3NTQ1MjQxNTMsImV4cCI6MTc1NDcwNDE1M30.O3jN8WKq6pGtOQhHGaoDj0QveXD2Pl7mGwuBOegBDDg
+Content-Type: application/json
+
+{
+    "chatToken":""
+}
+
+###GET sessions as a user....
+GET http://localhost:5000/chat/message/sessions
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYyMDIyMDIyNiIsIm5hbWUiOiJHdXJ1IiwiaWF0IjoxNzU0NTYwODA2LCJleHAiOjE3NTQ1NzE2MDZ9.sLO1WJI3sGMvjJNOAPakHHdzOP26NnX7HWEAzMsjxPM
+
+###GET sessions as a user....
+GET http://localhost:5000/chat/message/sessions
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYyMDIyMDIyNiIsIm5hbWUiOiJHdXJ1IiwiaWF0IjoxNzU0NTYwODA2LCJleHAiOjE3NTQ1NzE2MDZ9.sLO1WJI3sGMvjJNOAPakHHdzOP26NnX7HWEAzMsjxPM
+
+###GET sessions as a user....
+POST http://localhost:5000/chat/message/sessions
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYyMDIyMDIyNiIsIm5hbWUiOiJHdXJ1IiwiaWF0IjoxNzU0NTYwODA2LCJleHAiOjE3NTQ1NzE2MDZ9.sLO1WJI3sGMvjJNOAPakHHdzOP26NnX7HWEAzMsjxPM
+Content-Type: application/json
+
+{
+    "message":"Namah Shankarayah"
+}
+
+###DELETE the chat (needs Admin in Auth string)
+DELETE  http://localhost:8081/chat/deleteChat/TestRoom
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYyMDIyMDIyNiIsImlhdCI6MTc1NDUwODMxNywiZXhwIjoxNzU3MTAwMzE3fQ.2cD9W2W3HsCE9xemJRYtwcysb1EP5b4ptfw3h969DLQ
+
+###POST to login into the admin
+POST  http://localhost:8081/chat/check
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYyMDIyMDIyNiIsImlhdCI6MTc1NDUwODMxNywiZXhwIjoxNzU3MTAwMzE3fQ.2cD9W2W3HsCE9xemJRYtwcysb1EP5b4ptfw3h969DLQ
+Content-Type: application/json
+
+{
+    "chatToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYyMDIyMDIyNiIsIm5hbWUiOiJHdXJ1IiwiaWF0IjoxNzU0NTYyMTk4LCJleHAiOjE3NTQ1NjIyNzh9.GxTp-1NB5_UL03aayL8G3sOO_Vjor7M_IpuHJC80bas"
+}
+

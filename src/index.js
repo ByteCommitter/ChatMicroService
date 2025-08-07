@@ -1,19 +1,18 @@
-import dotenv from 'dotenv';
-dotenv.config();
 
 import express from 'express';
 import cors from 'cors';
-import cookieParser from "cookie-parser";
-import authRoutes from "./routes/auth.route.js";
+import helmet from 'helmet';
+import { protectRoute } from './middleware/auth.middleware.js';
 import messageRoutes from "./routes/message.route.js";
+import managementRoutes from './routes/management.route.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 //uncomment when moving to sockets
 //import {app,server} from "./lib/socket.js";
 
 
 const app=express();
-
-
 const PORT= process.env.PORT;
 
 
@@ -24,16 +23,15 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
+app.use(helmet());
 app.use(express.json());
-app.use(cookieParser());
 
 app.get("/health",(req,res)=>{
     res.status(200).json({status:"ok"});
 })
 
-app.use("/chat/auth",authRoutes);
-app.use("/chat/message",messageRoutes);
-
+app.use("/chat/message",protectRoute,messageRoutes);
+app.use("/chat/management",managementRoutes);
 //change to server, when moving to sockets...
 app.listen(PORT,()=>{
     console.log(`Server is running on PORT: ${PORT}`);

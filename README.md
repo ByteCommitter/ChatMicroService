@@ -22,15 +22,6 @@ This repository showcases the integration of a real-time chat microservice into 
 - **MongoDB** (for long-term chat storage - upcoming)
 - **BullMQ** (planned for queue-based background summarization tasks)
 
-## 📁 Folder Structure
-
-```
-├── main-server/       # Handles login, session creation, JWT issuance
-├── chat-service/      # WebSocket server for real-time chat
-├── redis/             # Temporary TTL-based message storage
-└── fcm/               # Firebase notifications logic
-```
-
 ## 🧠 Design Highlights
 
 - Token-based stateless communication between services ensures secure and scalable chat interactions.
