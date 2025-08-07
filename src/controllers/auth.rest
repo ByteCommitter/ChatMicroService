@@ -76,15 +76,14 @@ Content-Type: application/json
 
 ###GET sessions as a user....
 GET http://localhost:5000/chat/message/sessions
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYyMDIyMDIyNiIsIm5hbWUiOiJHdXJ1IiwiaWF0IjoxNzU0NTYwODA2LCJleHAiOjE3NTQ1NzE2MDZ9.sLO1WJI3sGMvjJNOAPakHHdzOP26NnX7HWEAzMsjxPM
-
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYyMDIyMDIyNiIsIm5hbWUiOiJHdXJ1IiwiaWF0IjoxNzU0NTc0OTc0LCJleHAiOjE3NTQ1ODIxNzR9.3FL2ALcDk6FgWcjr9ysKZCG0w7C6ORCxGMUJMjODpwk
 ###GET sessions as a user....
-GET http://localhost:5000/chat/message/sessions
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYyMDIyMDIyNiIsIm5hbWUiOiJHdXJ1IiwiaWF0IjoxNzU0NTYwODA2LCJleHAiOjE3NTQ1NzE2MDZ9.sLO1WJI3sGMvjJNOAPakHHdzOP26NnX7HWEAzMsjxPM
+GET http://localhost:5000/chat/message/2c2c4e2c-7a7f-4981-8fae-370f3fada0bf
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYyMDIyMDIyNiIsIm5hbWUiOiJHdXJ1IiwiaWF0IjoxNzU0NTc0OTc0LCJleHAiOjE3NTQ1ODIxNzR9.3FL2ALcDk6FgWcjr9ysKZCG0w7C6ORCxGMUJMjODpwk
 
-###GET sessions as a user....
-POST http://localhost:5000/chat/message/sessions
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYyMDIyMDIyNiIsIm5hbWUiOiJHdXJ1IiwiaWF0IjoxNzU0NTYwODA2LCJleHAiOjE3NTQ1NzE2MDZ9.sLO1WJI3sGMvjJNOAPakHHdzOP26NnX7HWEAzMsjxPM
+###POST a new message into a session:
+POST http://localhost:5000/chat/message/2c2c4e2c-7a7f-4981-8fae-370f3fada0bf
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYyMDIyMDIyNiIsIm5hbWUiOiJHdXJ1IiwiaWF0IjoxNzU0NTc0OTc0LCJleHAiOjE3NTQ1ODIxNzR9.3FL2ALcDk6FgWcjr9ysKZCG0w7C6ORCxGMUJMjODpwk
 Content-Type: application/json
 
 {
@@ -101,6 +100,6 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYyMDIyMDIyNiIsImlh
 Content-Type: application/json
 
 {
-    "chatToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYyMDIyMDIyNiIsIm5hbWUiOiJHdXJ1IiwiaWF0IjoxNzU0NTYyMTk4LCJleHAiOjE3NTQ1NjIyNzh9.GxTp-1NB5_UL03aayL8G3sOO_Vjor7M_IpuHJC80bas"
+    "chatToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYyMDIyMDIyNiIsIm5hbWUiOiJHdXJ1IiwiaWF0IjoxNzU0NTc0OTc0LCJleHAiOjE3NTQ1ODIxNzR9.3FL2ALcDk6FgWcjr9ysKZCG0w7C6ORCxGMUJMjODpwk"
 }
 

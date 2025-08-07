@@ -46,7 +46,7 @@ export const getUsersForSidebar = async(req,res)=>{
 
 export const postMessage =async(req,res)=>{
     try{
-        const sessionId=req.params;
+        const  {sessionId}=req.params;
         console.log(`posting message into ${sessionId}`);
         
         const {message} =req.body;
@@ -54,8 +54,16 @@ export const postMessage =async(req,res)=>{
         const name=req.user.name;
 
         //is user in the participants list?
-        
-        const newMessage= new Message({fromId:id},{name:name},{sessionId:sessionId},{text:message},{time:Date.toISOString()})
+        const roomName= await client.hget(`sessionName:${sessionId}`,'roomName');
+        const data = await client.hget(`roomName:${roomName}`, 'participants');
+        const participants = JSON.parse(data);
+        const isAllowed = participants.some(p => p.id === id);
+
+        if(!isAllowed){
+            console.log("participant not allowed in this chat");
+            return res.status(403).json({message:"Forbidden"});
+        }
+        const newMessage= new Message(id,name,sessionId,message,new Date().toISOString());
 
         await client.rpush(`${sessionId}:messages`,JSON.stringify(newMessage));
 
@@ -69,16 +77,15 @@ export const postMessage =async(req,res)=>{
 
 export const getMessages =async(req,res)=>{
     try{
-        const sessionId=req.params;
-        console.log(`posting message into ${sessionId}`);
-    
-        const newMessage= new Message({fromId:id},{name:name},{sessionId:sessionId},{text:message},{time:Date.toISOString()})
+        const{ sessionId }=req.params;
+        console.log(`Getting message from session: ${sessionId}`);
+        
+        const messages=await client.lrange(`${sessionId}:messages`,0,-1);
+        const parsedMessages=messages.map(msg=>JSON.parse(msg));
 
-        await client.rpush(`${sessionId}:messages`,JSON.stringify(newMessage));
-
-        res.status(201).json({sucess:true,message:"Message created"});
+        res.status(200).json({messages:parsedMessages});
     }catch(error){
-        console.log("Error sending message:\n",error);
+        console.log("Error getting message:\n",error);
         return res.status(500).json({message:"Internal Server Error"});
     }
 };

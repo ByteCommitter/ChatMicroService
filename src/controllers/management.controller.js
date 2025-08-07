@@ -20,12 +20,16 @@ export const createSession=async(req,res)=>{
             return res.status(409).json({message:"Can't create room with same name"});
         }
         console.log("Creating new Room");
+
+        
+        //TODO: use the revised Redis data structures to store room metadata and participant meta data.
+
         //set metadata for roomName
         await client.hset(`roomName:${roomName}`,{
             sessionId:roomSessionId,
             participants:JSON.stringify(participants)
         });
-        
+
         await client.hset(`sessionName:${roomSessionId}`,'roomName',roomName);
 
         console.log("Created Room Metadata");
