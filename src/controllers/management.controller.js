@@ -23,7 +23,7 @@ export const createSession=async(req,res)=>{
 
         
         //TODO: use the revised Redis data structures to store room metadata and participant meta data.
-
+        participants.push({id:"admin",name:"Admin"});
         //set metadata for roomName
         await client.hset(`roomName:${roomName}`,{
             sessionId:roomSessionId,
